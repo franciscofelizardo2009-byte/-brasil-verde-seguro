@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasil Verde & Seguro</title>
+<style>
+:root{--bg:#08131d;--panel:#102331;--panel2:#142d3d;--line:#244354;--text:#eaf4f2;--muted:#a7bdc4;--green:#35c98a;--blue:#54b9e8;--gold:#f2c15c;--red:#f07878}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#07131c,#0c202b 60%,#102c30);color:var(--text);font:15px/1.5 system-ui,Segoe UI,Arial}
+header{padding:22px clamp(16px,4vw,48px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#081722dd}
+.brand{display:flex;align-items:center;gap:13px}.logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(145deg,#1b9b67,#167da2);display:grid;place-items:center;font-size:25px}
+h1{font-size:clamp(20px,3vw,27px);margin:0;letter-spacing:.3px}.sub{color:var(--muted);font-size:12px}.status{border:1px solid #28634e;color:#8df0bc;border-radius:30px;padding:7px 12px;font-size:12px}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px clamp(16px,4vw,48px);border-bottom:1px solid var(--line)}
+nav button,.btn{border:1px solid var(--line);background:#102634;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+nav button.active,nav button:hover,.btn.primary{background:var(--green);border-color:var(--green);color:#062117}
+main{max-width:1250px;margin:auto;padding:26px clamp(16px,4vw,48px) 50px}.page{display:none}.page.active{display:block}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:20px}h2{font-size:24px;margin:0 0 4px}h3{margin:0 0 12px;font-size:17px}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+.card{background:linear-gradient(145deg,#112a39,#0e202c);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 12px 28px #0002}
+.metric{font-size:30px;font-weight:800;margin:8px 0 2px}.tag{display:inline-block;padding:4px 9px;border-radius:30px;font-size:11px;background:#183e35;color:#8df0bc}.blue{background:#15384a;color:#8bd9ff}.gold{background:#40351c;color:#f7d88c}.red{background:#46272b;color:#ffaaaa}
+.metric-label{color:var(--muted);font-size:13px}.bar{height:8px;background:#203b49;border-radius:9px;overflow:hidden;margin-top:12px}.bar span{display:block;height:100%;background:var(--green);border-radius:9px}
+ul.clean{padding-left:18px;color:var(--muted);margin-bottom:0}li{margin:7px 0}
+.notice{padding:13px 15px;border-left:3px solid var(--gold);background:#2b291e;border-radius:8px;color:#f6e2ae;margin:14px 0}
+form{display:grid;gap:12px}label{display:grid;gap:6px;color:#c5d7dc;font-size:13px}input,select,textarea{width:100%;background:#091923;border:1px solid #315064;border-radius:9px;padding:11px;color:var(--text);font:inherit}textarea{min-height:95px;resize:vertical}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}th{color:#a8c3cc;font-weight:600}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn.danger{border-color:#87464b;color:#ffb2b2}.btn.small{padding:6px 9px;font-size:12px}
+.emergency{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.emergency a{display:block;text-decoration:none;color:var(--text);padding:14px;background:#172d39;border:1px solid var(--line);border-radius:12px}.emergency strong{display:block;font-size:22px;color:var(--gold)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #203b49;color:var(--muted)}.check input{width:auto;margin-top:5px}
+footer{border-top:1px solid var(--line);padding:18px;text-align:center;color:var(--muted);font-size:12px}
+.empty{color:var(--muted);text-align:center;padding:20px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.formrow,.emergency{grid-template-columns:1fr}nav button{flex:1}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">🌎</div><div><h1>BRASIL VERDE & SEGURO</h1><div class="sub">Plataforma de cidadania, sustentabilidade e proteção nacional</div></div></div>
+ <div class="status">● SISTEMA LOCAL ATIVO</div>
+</header>
+<nav aria-label="Navegação principal">
+ <button class="active" data-page="painel">Visão geral</button><button data-page="ambiente">Meio ambiente</button>
+ <button data-page="seguranca">Segurança nacional</button><button data-page="registros">Ocorrências</button><button data-page="emergencia">Emergências</button>
+</nav>
+<main>
+<section class="page active" id="painel">
+ <div class="heading"><div><h2>Painel de controle</h2><div class="muted">Acompanhe os registros feitos nesta instalação do sistema.</div></div><span class="tag">BRASIL • CIDADANIA</span></div>
+ <div class="grid">
+  <div class="card"><div class="metric" id="total">0</div><div class="metric-label">Ocorrências registradas</div><span class="tag blue">Todos os temas</span></div>
+  <div class="card"><div class="metric" id="ambientais">0</div><div class="metric-label">Registros ambientais</div><span class="tag">Natureza</span></div>
+  <div class="card"><div class="metric" id="protecao">0</div><div class="metric-label">Registros de proteção</div><span class="tag gold">Prevenção</span></div>
+  <div class="card"><div class="metric" id="alta">0</div><div class="metric-label">Prioridade alta</div><span class="tag red">Atenção</span></div>
+ </div>
+ <div class="two">
+  <div class="card"><h3>🌱 Prioridades para um Brasil sustentável</h3><ul class="clean"><li>Prevenir queimadas e desmatamento.</li><li>Proteger rios, nascentes e áreas de conservação.</li><li>Ampliar reciclagem e saneamento básico.</li><li>Incentivar energia limpa e educação ambiental.</li></ul><div class="bar"><span style="width:78%"></span></div><div class="sub">Indicador ilustrativo de temas prioritários — não representa medição oficial.</div></div>
+  <div class="card"><h3>🛡️ Proteção e cidadania</h3><ul class="clean"><li>Valorizar a soberania e as instituições democráticas.</li><li>Fortalecer a prevenção e a resposta a desastres.</li><li>Proteger serviços essenciais e infraestrutura.</li><li>Combater golpes e desinformação.</li></ul></div>
+ </div>
+ <div class="notice">Importante: este é um protótipo educativo. Os indicadores e registros são locais e não representam dados oficiais, monitoramento em tempo real ou comunicação direta com autoridades.</div>
+</section>
+<section class="page" id="ambiente">
+ <div class="heading"><div><h2>🌳 Meio ambiente</h2><div class="muted">Registre problemas ambientais para organizar informações e apoiar a conscientização.</div></div></div>
+ <div class="two">
+  <div class="card"><h3>Novo registro ambiental</h3>
+   <form id="formAmbiente">
+    <label>Tipo de ocorrência<select name="tipo" required><option value="">Selecione</option><option>Queimada ou fumaça</option><option>Desmatamento</option><option>Poluição da água</option><option>Descarte irregular de lixo</option><option>Poluição do ar</option><option>Risco à fauna ou flora</option><option>Outro problema ambiental</option></select></label>
+    <div class="formrow"><label>Município/UF<input name="local" placeholder="Ex.: Teresina - PI" required></label><label>Prioridade<select name="prioridade"><option>Normal</option><option>Alta</option></select></label></div>
+    <label>Descrição<textarea name="descricao" placeholder="Descreva o que foi observado, sem se colocar em risco." required></textarea></label>
+    <button class="btn primary" type="submit">Salvar ocorrência</button>
+   </form>
+  </div>
+  <div class="card"><h3>Boas práticas ambientais</h3><ul class="clean"><li>Não queime lixo nem vegetação.</li><li>Separe resíduos recicláveis.</li><li>Economize água e energia.</li><li>Proteja árvores e áreas verdes.</li><li>Não se aproxime de queimadas ou áreas contaminadas.</li></ul><div class="notice">Em situação de risco, mantenha distância e procure os serviços públicos competentes.</div></div>
+ </div>
+</section>
+<section class="page" id="seguranca">
+ <div class="heading"><div><h2>🛡️ Segurança nacional</h2><div class="muted">Conhecimento, prevenção e proteção da sociedade brasileira.</div></div></div>
+ <div class="grid">
+  <div class="card"><h3>🇧🇷 Soberania</h3><p class="muted">Respeito à autonomia do Brasil, ao território e às instituições constitucionais.</p></div>
+  <div class="card"><h3>🌐 Fronteiras</h3><p class="muted">Cooperação institucional, fiscalização legal e proteção ambiental nas regiões de fronteira.</p></div>
+  <div class="card"><h3>🏥 Infraestrutura</h3><p class="muted">Resiliência de hospitais, energia, água, transportes e comunicações.</p></div>
+  <div class="card"><h3>💻 Segurança digital</h3><p class="muted">Senhas fortes, autenticação em duas etapas e cuidado com links suspeitos.</p></div>
+ </div>
+ <div class="two">
+  <div class="card"><h3>Registrar preocupação de proteção civil</h3>
+   <form id="formSeg">
+    <label>Categoria<select name="tipo" required><option value="">Selecione</option><option>Risco de desastre natural</option><option>Interrupção de serviço essencial</option><option>Segurança digital ou golpe</option><option>Risco à infraestrutura pública</option><option>Outro tema de proteção civil</option></select></label>
+    <div class="formrow"><label>Município/UF<input name="local" placeholder="Ex.: Teresina - PI" required></label><label>Prioridade<select name="prioridade"><option>Normal</option><option>Alta</option></select></label></div>
+    <label>Descrição<textarea name="descricao" placeholder="Informe fatos observáveis. Não inclua senhas, dados pessoais ou acusações sem comprovação." required></textarea></label>
+    <button class="btn primary" type="submit">Salvar registro</button>
+   </form>
+  </div>
+  <div class="card"><h3>Checklist de prevenção</h3>
+   <label class="check"><input type="checkbox"> Conheço os telefones de emergência da minha região.</label>
+   <label class="check"><input type="checkbox"> Mantenho documentos importantes protegidos.</label>
+   <label class="check"><input type="checkbox"> Uso senhas diferentes e autenticação em duas etapas.</label>
+   <label class="check"><input type="checkbox"> Verifico informações antes de compartilhar.</label>
+   <label class="check"><input type="checkbox"> Sei onde buscar alertas oficiais de defesa civil.</label>
+   <p class="sub">A segurança nacional também depende de prevenção, educação, cooperação e respeito aos direitos.</p>
+  </div>
+ </div>
+</section>
+<section class="page" id="registros">
+ <div class="heading"><div><h2>📋 Histórico de ocorrências</h2><div class="muted">Consulte, exporte ou apague os dados salvos neste navegador.</div></div><div class="actions"><button class="btn" id="exportar">Exportar JSON</button><button class="btn" id="csv">Exportar CSV</button></div></div>
+ <div class="card"><div style="overflow-x:auto"><table><thead><tr><th>Data</th><th>Área</th><th>Tipo</th><th>Local</th><th>Prioridade</th><th>Ação</th></tr></thead><tbody id="lista"></tbody></table></div><div id="vazio" class="empty">Nenhuma ocorrência registrada ainda.</div></div>
+ <div class="actions"><button class="btn danger" id="limpar">Apagar todos os registros</button></div>
+</section>
+<section class="page" id="emergencia">
+ <div class="heading"><div><h2>🚨 Emergências e serviços públicos</h2><div class="muted">Atalhos informativos para situações que exigem ajuda.</div></div></div>
+ <div class="emergency">
+  <a href="tel:190"><span>Polícia Militar</span><strong>190</strong><small class="muted">Emergências policiais</small></a>
+  <a href="tel:192"><span>SAMU</span><strong>192</strong><small class="muted">Urgências médicas</small></a>
+  <a href="tel:193"><span>Bombeiros</span><strong>193</strong><small class="muted">Incêndios e salvamentos</small></a>
+  <a href="tel:199"><span>Defesa Civil</span><strong>199</strong><small class="muted">Desastres e riscos</small></a>
+  <a href="tel:191"><span>Polícia Rodoviária Federal</span><strong>191</strong><small class="muted">Emergências em rodovias federais</small></a>
+  <a href="tel:197"><span>Polícia Civil</span><strong>197</strong><small class="muted">Orientações e denúncias</small></a>
+ </div>
+ <div class="notice">Os números podem variar em disponibilidade e encaminhamento regional. Use-os somente em situações adequadas. Em risco imediato, procure um adulto de confiança ou serviço público. Não tente investigar, confrontar pessoas ou se aproximar de áreas perigosas.</div>
+ <div class="card"><h3>O que fazer diante de um risco?</h3><ol class="clean"><li>Afaste-se do perigo e procure um local seguro.</li><li>Não toque em objetos suspeitos nem entre em áreas isoladas.</li><li>Acione o serviço público apropriado.</li><li>Informe localização e fatos observados com clareza.</li><li>Não publique dados pessoais ou informações não verificadas.</li></ol></div>
+</section>
+</main>
+<footer>BRASIL VERDE & SEGURO • Protótipo educativo independente • Dados armazenados somente neste navegador</footer>
+<script>
+const KEY='brasilVerdeSeguro_v1';
+let registros=JSON.parse(localStorage.getItem(KEY)||'[]');
+const $=s=>document.querySelector(s);
+function salvar(){localStorage.setItem(KEY,JSON.stringify(registros));atualizar();}
+function atualizar(){
+ $('#total').textContent=registros.length;
+ $('#ambientais').textContent=registros.filter(r=>r.area==='Meio ambiente').length;
+ $('#protecao').textContent=registros.filter(r=>r.area==='Proteção civil').length;
+ $('#alta').textContent=registros.filter(r=>r.prioridade==='Alta').length;
+ const tbody=$('#lista');tbody.innerHTML='';
+ $('#vazio').style.display=registros.length?'none':'block';
+ [...registros].reverse().forEach(r=>{
+  const tr=document.createElement('tr');
+  [new Date(r.data).toLocaleString('pt-BR'),r.area,r.tipo,r.local,r.prioridade].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});
+  const td=document.createElement('td'),b=document.createElement('button');b.className='btn small danger';b.textContent='Excluir';b.onclick=()=>{registros=registros.filter(x=>x.id!==r.id);salvar();};td.appendChild(b);tr.appendChild(td);tbody.appendChild(tr);
+ });
+}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('#'+b.dataset.page).classList.add('active');
+}));
+function ligarFormulario(id,area){
+ $('#'+id).addEventListener('submit',e=>{
+  e.preventDefault();const f=new FormData(e.target);
+  registros.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),data:new Date().toISOString(),area,tipo:f.get('tipo'),local:f.get('local').trim(),prioridade:f.get('prioridade'),descricao:f.get('descricao').trim()});
+  salvar();e.target.reset();alert('Registro salvo neste navegador.');document.querySelector('[data-page="registros"]').click();
+ });
+}
+ligarFormulario('formAmbiente','Meio ambiente');ligarFormulario('formSeg','Proteção civil');
+function baixar(nome,conteudo,tipo){const blob=new Blob([conteudo],{type:tipo}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=nome;a.click();URL.revokeObjectURL(url);}
+$('#exportar').onclick=()=>baixar('registros-brasil-verde-seguro.json',JSON.stringify(registros,null,2),'application/json');
+$('#csv').onclick=()=>{const cols=['data','area','tipo','local','prioridade','descricao'];const esc=v=>'"'+String(v??'').replaceAll('"','""')+'"';baixar('registros-brasil-verde-seguro.csv',[cols.join(';'),...registros.map(r=>cols.map(c=>esc(r[c])).join(';'))].join('\n'),'text/csv;charset=utf-8');};
+$('#limpar').onclick=()=>{if(confirm('Tem certeza de que deseja apagar todos os registros deste navegador?')){registros=[];salvar();}};
+atualizar();
+</script>
+</body>
+</html>
